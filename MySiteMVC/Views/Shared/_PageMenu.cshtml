@@ -1,0 +1,21 @@
+﻿<div id="pageMenuBar" onclick="togglePageMenu()">
+    <div class="arrow leftArrow"></div>
+    <hr />
+    <div class="collapseBarText text-center"><span class="desktopOnlyText">click to <span class="swappedText">collapse</span></span> page menu</div>
+    <hr />
+    <div class="arrow leftArrow"></div>
+</div>
+<div id="pageMenu" aria-expanded="true">
+    <div class="pageMenu-title text-center">on this page</div>
+    <hr />
+    <div class="btn-group-vertical">
+        @{
+            var SectionHeadings = ViewData["SectionHeadings"] as string[];
+            foreach (var heading in SectionHeadings){
+                <a class="btn btn-outline-primary btn-sm" asp-controller="AboutMe" asp-action="Index" asp-fragment="@heading">@heading</a>
+            }
+        }
+
+    </div>
+</div>
+

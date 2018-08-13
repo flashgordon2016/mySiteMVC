@@ -8,25 +8,18 @@ using MySiteMVC.Models;
 
 namespace MySiteMVC.Controllers
 {
-    public class HomeController : Controller
+    public class AboutMeController : Controller
     {
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            string[] SectionHeadings = new string[5];
+            ViewData["SectionHeadings"] = SectionHeadings;
+            SectionHeadings[0] = "intro";
+            SectionHeadings[1] = "experience";
+            SectionHeadings[2] = "education";
+            SectionHeadings[3] = "skills";
+            SectionHeadings[4] = "hobbies";
+            return View("Index");
         }
 
         public IActionResult Privacy()

@@ -1,37 +1,187 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #f1f1f1;
+    font-family: Georgia, Helvetica, sans-serif;
+}
+
+article {
+    max-width: 700px;
+}
+    .navbar-nav > li > a.active {
+    border-bottom-color: orange;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+}
+
+.navbar-nav > li > a:hover {
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+}
+
+button.navbar-toggler {
+    background-color: white;
+}
+
+button.navbar-toggler:hover {
+    background-color: orange;
+}
+
+#bodyContent p a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom-color: orange;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}
+
+#bodyContent p a:hover {
+    background-color: orange;
+    transition: box-shadow .15s ease-in-out;
+}
+
+.bannerImage {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 80px 25px 0 273px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
 
 /* QR code generator */
 #qrCode {
     margin: 15px;
 }
 
+
+
+/* page menu bar */
+#pageMenuBar {
+    position: fixed;
+    top: 61px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding-top: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #3c3c3c;
+    border-right: 1px solid #eee;
+    width: 48px;
+    cursor: pointer;
+}
+
+#pageMenuBar:hover {
+    background-color: #666670;
+    cursor: pointer;
+}
+
+#pageMenuBar hr {
+    border-color: white;
+    height: 2px;
+}
+
+#pageMenuBar .leftArrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid white;
+    margin: auto;
+}
+
+#pageMenuBar .rightArrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid white;
+    margin: auto;
+}
+
+#pageMenuBar .collapseBarText {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* page menu */
+#pageMenu {
+    position: fixed;
+    top: 61px;
+    bottom: 0;
+    left: 48px;
+    z-index: 1000;
+    display: block;
+    padding-right: 3px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: white;
+    border-right: 1px solid #eee;
+    width: 200px;
+}
+
+#pageMenu .pageMenu-title {
+    padding-top: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: darkslategrey;
+}
+
+#pageMenu .btn-group-vertical {
+    width: 95%;
+}
+
+#pageMenu a {
+    font-size: 1.25rem;
+    margin: 0 5px 5px 5px;
+    white-space: normal;
+}
+
+/* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+h2.anchor {
+    position: relative;
+}
+
+h2.anchor span {
+    position: absolute;
+    top: -70px;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    flex-shrink: 0;
+    padding-bottom: 20px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+ 
+    .desktopOnlyText{
+        display:none;
+    }
+    #pageMenuBar .collapseBarText{
+        padding: 3px 15px;
+    }
+    #pageMenuBar {
+        top: 56px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    #pageMenuBar {
+        top: 56px;
     }
 }
