@@ -12,7 +12,7 @@
         @{
             var SectionHeadings = ViewData["SectionHeadings"] as string[];
             foreach (var heading in SectionHeadings){
-                <a class="btn btn-outline-primary btn-sm" asp-controller="AboutMe" asp-action="Index" asp-fragment="@heading">@heading</a>
+                <a class="btn btn-outline-secondary btn-sm" asp-controller="AboutMe" asp-action="Index" asp-fragment="@heading">@heading</a>
             }
         }
 

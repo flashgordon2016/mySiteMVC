@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MySiteMVC.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,8 +12,15 @@ namespace MySiteMVC.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly MySiteDBContext _context;
+
+        public BlogController(MySiteDBContext context)
+        {
+            _context = context;
+        }
+
         // GET: /<controller>/
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             string[] SectionHeadings = new string[10];
             ViewData["SectionHeadings"] = SectionHeadings;
@@ -25,7 +34,7 @@ namespace MySiteMVC.Controllers
             SectionHeadings[7] = "The Soul of the New Machine and the Modern Disruption Myth";
             SectionHeadings[8] = "Microsoft Azure's Consistent Hybrid Cloud Explained in 3 Levels of Difficulty";
             SectionHeadings[9] = "What Upgrading Memory Capacity Can and Can't do for your Computer ";
-            return View();
+            return View(await _context.BlogPost.Include(p => p.PostTagsJunction).ThenInclude(pt => pt.Tag).ToListAsync());
         }
     }
 }

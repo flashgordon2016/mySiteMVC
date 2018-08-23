@@ -1,14 +1,31 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
+
 body {
     background-color: #f1f1f1;
     font-family: Georgia, Helvetica, sans-serif;
 }
 
+.card:hover {
+    border-left: 2px solid orange;
+    border-right: 2px solid orange;
+}
+
+.post-link {
+    color: #004590;
+}
+
+.post-link:hover {
+    text-decoration: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
 article {
     max-width: 700px;
 }
-    .navbar-nav > li > a.active {
+
+.navbar-nav > li > a.active {
     border-bottom-color: orange;
     border-bottom-style: solid;
     border-bottom-width: thick;

@@ -98,7 +98,36 @@ function togglePageMenu() {
             //change text from 'expand' to 'collapse'
             $('.collapseBarText .swappedText').text('collapse');
         });
-
-
     }
+}
+
+
+//Hide card
+function viewPost(cardLink) {
+    //get card from given link
+    var postCard = cardLink.parentElement.parentElement;
+    //Remove card from post view, if any
+    var post = document.getElementById('fullPost');
+    if (post.hasChildNodes()) {
+        post.removeChild(post.childNodes[0]);
+        //Restore swapped post's card visibility
+        var cards = document.getElementsByClassName('card');
+        for (var i = 0; i < cards.length; i++)
+        {
+            cards[i].style.display = 'inline-block';
+        }
+    }
+
+    //Copy card to post displaying div
+    var postCardCopy = postCard.cloneNode(true);
+    document.getElementById("fullPost").appendChild(postCardCopy);
+    //Hide card 
+    postCard.style.display = "none";
+}
+
+
+//search site
+function siteSearch(searchForm) {
+    var domain = "www.mgordonmorse.com";
+    document.getElementById("hiddenquery").value = "site:" + domain + " " + searchForm.queryField.value;
 }
