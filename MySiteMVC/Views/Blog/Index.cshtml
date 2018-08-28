@@ -16,14 +16,19 @@
     @foreach (var post in Model)
     {
     <div class="card">
-        @if (post.BannerImgPath != null)
-        {
-            <img class="card-img-top" src="@post.BannerImgPath" alt="Card image cap" style="max-width:inherit;">
-        }
+        <a href="./Blog/Post/@post.BlogPostId">
+            @if (post.BannerImgPath != null)
+            {
+                <img class="card-img-top" src="@post.BannerImgPath" alt="Card image cap">
+            }
+        </a>
         <div class="card-body">
-            <div class="post-link" onclick="viewPost(this)">
-                <h4 class="card-title">@Html.DisplayFor(modelPost => post.Title)</h4>
-                <p class="card-text">@Html.DisplayFor(modelPost => post.Summary)</p>
+            <div class="post-ID" style="display:none;">@Html.DisplayFor(modelPost => post.BlogPostId)</div>      
+            <div class="post-link">
+                <a href="./Blog/Post/@post.BlogPostId">
+                    <h4 class="card-title">@Html.DisplayFor(modelPost => post.Title)</h4>
+                    <p class="card-text">@Html.DisplayFor(modelPost => post.Summary)</p>
+                </a>
             </div>
             <p class="card-text">
                 <small class="text-muted">
@@ -39,7 +44,6 @@
                     <a href="#" class="badge badge-primary">@tag.Tag.Name</a>
                 }
             }
-
         </div>
     </div>
     }

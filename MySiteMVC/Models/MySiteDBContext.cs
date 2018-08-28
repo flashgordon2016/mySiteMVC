@@ -18,6 +18,10 @@ namespace MySiteMVC.Models
         public virtual DbSet<BlogPost> BlogPost { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
         public virtual DbSet<PostTagsJunction> PostTagsJunction { get; set; }
+        public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<ProjectTags> ProjectTags { get; set; }
+        public virtual DbSet<Education> Education { get; set; }
+        public virtual DbSet<EducationProjects> EducationProjects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -77,8 +81,17 @@ namespace MySiteMVC.Models
             modelBuilder.Entity<Tag>(entity =>
             {
                 entity.Property(e => e.TagId).HasColumnName("TagID");
-
                 entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<ProjectTags>(entity =>
+            {
+                entity.HasKey(e => new { e.TagId, e.ProjectId });
+            });
+
+            modelBuilder.Entity<EducationProjects>(entity =>
+            {
+                entity.HasKey(e => new { e.EducationId, e.ProjectId });
             });
         }
     }

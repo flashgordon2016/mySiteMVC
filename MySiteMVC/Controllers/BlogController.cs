@@ -36,5 +36,32 @@ namespace MySiteMVC.Controllers
             SectionHeadings[9] = "What Upgrading Memory Capacity Can and Can't do for your Computer ";
             return View(await _context.BlogPost.Include(p => p.PostTagsJunction).ThenInclude(pt => pt.Tag).ToListAsync());
         }
+
+        public async Task<IActionResult> Post(int? id)
+        {
+            //check that id was supplied
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //retrieve post and/or check that it exists
+            var post = await _context.BlogPost.Include(p => p.PostTagsJunction).ThenInclude(pt => pt.Tag).FirstOrDefaultAsync(m => m.BlogPostId == id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            //prepare page menu items
+            string[] SectionHeadings = new string[5];
+            ViewData["SectionHeadings"] = SectionHeadings;
+            SectionHeadings[0] = "5 Key Takeaways from Rocket Surgery Made Easy";
+            SectionHeadings[1] = "The Christofides Algorithm: 40 Years Later";
+            SectionHeadings[2] = "Cuckoo's Nest: A Look at Network Security Issues in 1987";
+            SectionHeadings[3] = "Social Engineering: Is the Issue Overblown?";
+            SectionHeadings[4] = "ASP.NET Core: Razor Pages vs MVC";
+
+            return View(post);
+        }
     }
 }

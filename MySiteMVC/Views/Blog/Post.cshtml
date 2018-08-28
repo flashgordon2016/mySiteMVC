@@ -1,0 +1,31 @@
+﻿@model MySiteMVC.Models.BlogPost
+@{ 
+    ViewData["Title"] = Model.Title;
+}
+<!--Specify which navbar button is active in menu-->
+<script>
+    var btn = document.getElementById('blogBtn');
+    btn.classList.add('active');
+</script>
+<h5>
+    <a asp-area="" asp-controller="Blog" asp-action="Index">blog posts</a> > @Html.DisplayFor(Model => Model.Title)
+</h5>
+<div class="postBanner">
+    <img src="../../@Html.DisplayFor(model => Model.BannerImgPath)" alt="banner image">
+</div>
+<article>
+    <h1>@Html.DisplayFor(model => Model.Title)</h1>
+    <small class="text-muted">
+        Posted on @Html.DisplayFor(modelPost => Model.OriginalPostDateForDisplay) by Matt Morse
+    </small><br /><br />
+    <partial name="./Posts/@Model.Content" />
+    @**@
+    @if (Model.PostTagsJunction.Count() != 0)
+    {
+        <small>Tags:</small>
+        @foreach (var tag in Model.PostTagsJunction)
+        {
+            <a href="#" class="badge badge-primary">@tag.Tag.Name</a>
+        }
+    }
+</article>

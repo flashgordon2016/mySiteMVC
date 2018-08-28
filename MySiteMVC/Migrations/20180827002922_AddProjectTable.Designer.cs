@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySiteMVC.Models;
 
 namespace MySiteMVC.Migrations
 {
     [DbContext(typeof(MySiteDBContext))]
-    partial class MySiteDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180827002922_AddProjectTable")]
+    partial class AddProjectTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,50 +50,6 @@ namespace MySiteMVC.Migrations
                     b.HasKey("BlogPostId");
 
                     b.ToTable("Blog_Post");
-                });
-
-            modelBuilder.Entity("MySiteMVC.Models.Education", b =>
-                {
-                    b.Property<int>("EducationId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Credits");
-
-                    b.Property<string>("Degree");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.Property<double>("GPA");
-
-                    b.Property<string>("Institution")
-                        .IsRequired();
-
-                    b.Property<string>("Logo")
-                        .IsRequired();
-
-                    b.Property<string>("Major");
-
-                    b.Property<DateTime>("StartDate");
-
-                    b.Property<string>("Website");
-
-                    b.HasKey("EducationId");
-
-                    b.ToTable("Education");
-                });
-
-            modelBuilder.Entity("MySiteMVC.Models.EducationProjects", b =>
-                {
-                    b.Property<int>("EducationId");
-
-                    b.Property<int>("ProjectId");
-
-                    b.HasKey("EducationId", "ProjectId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("EducationProjects");
                 });
 
             modelBuilder.Entity("MySiteMVC.Models.PostTagsJunction", b =>
@@ -158,19 +116,6 @@ namespace MySiteMVC.Migrations
                     b.HasKey("TagId");
 
                     b.ToTable("Tag");
-                });
-
-            modelBuilder.Entity("MySiteMVC.Models.EducationProjects", b =>
-                {
-                    b.HasOne("MySiteMVC.Models.Education", "Education")
-                        .WithMany("EducationProjects")
-                        .HasForeignKey("EducationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MySiteMVC.Models.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("MySiteMVC.Models.PostTagsJunction", b =>

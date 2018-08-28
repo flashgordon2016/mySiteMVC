@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySiteMVC.Models;
 
 namespace MySiteMVC.Migrations
 {
     [DbContext(typeof(MySiteDBContext))]
-    partial class MySiteDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180827023829_AddEducationEntity")]
+    partial class AddEducationEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

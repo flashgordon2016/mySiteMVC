@@ -6,35 +6,64 @@ body {
     font-family: Georgia, Helvetica, sans-serif;
 }
 
-.card:hover {
-    border-left: 2px solid orange;
-    border-right: 2px solid orange;
+.postBanner {
+    height: 300px;
+    width: inherit;
+    padding-bottom: 20px;
+    background-color: white;
+    margin: 15px 0;
 }
 
-.post-link {
+.postBanner img {
+    height: inherit;
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.card:hover {
+    outline: 2px solid orange;
+}
+
+.card .post-link a {
     color: #004590;
 }
 
-.post-link:hover {
+
+
+.card .post-link a:hover {
     text-decoration: none;
     color: #007bff;
     cursor: pointer;
 }
 
+h4.card-title:hover {
+    text-decoration: none!important;
+}
+
 article {
     max-width: 700px;
+    margin: 0 auto;
+}
+
+.navbar-nav > li {
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+.navbar-nav > li > a {
+    border: 8px solid transparent;  
 }
 
 .navbar-nav > li > a.active {
-    border-bottom-color: orange;
-    border-bottom-style: solid;
-    border-bottom-width: thick;
+    border-bottom: 8px solid orange;
+    font-weight: 600;
 }
 
 .navbar-nav > li > a:hover {
     border-bottom-color: lightgray;
     border-bottom-style: solid;
-    border-bottom-width: thick;
+    border-bottom-width: 8px;
 }
 
 button.navbar-toggler {
@@ -43,6 +72,10 @@ button.navbar-toggler {
 
 button.navbar-toggler:hover {
     background-color: orange;
+}
+
+#bodyContent {
+    font-size: 1.05rem;
 }
 
 #bodyContent p a {
@@ -81,7 +114,7 @@ button.navbar-toggler:hover {
 /* page menu bar */
 #pageMenuBar {
     position: fixed;
-    top: 61px;
+    top: 56px;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -135,7 +168,7 @@ button.navbar-toggler:hover {
 /* page menu */
 #pageMenu {
     position: fixed;
-    top: 61px;
+    top: 56px;
     bottom: 0;
     left: 48px;
     z-index: 1000;
@@ -150,19 +183,10 @@ button.navbar-toggler:hover {
 
 #pageMenu .pageMenu-title {
     padding-top: 10px;
-    font-size: 1.25rem;
     font-weight: 600;
     color: darkslategrey;
-}
-
-#pageMenu .btn-group-vertical {
-    width: 95%;
-}
-
-#pageMenu a {
     font-size: 1.25rem;
-    margin: 0 5px 5px 5px;
-    white-space: normal;
+    padding-left: 15px;
 }
 
 /* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
@@ -175,6 +199,30 @@ h2.anchor span {
     top: -70px;
 }
 
+nav ol{
+    padding-left: 20px;
+    
+}
+
+nav ol li {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 2px 0 2px 4px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+nav ol li:hover {
+    border-left: 3px solid grey;
+}
+
+nav ol li a:hover {
+    text-decoration: none;
+}
 /* footer */
 footer {
     width: 100%;
@@ -191,14 +239,127 @@ footer {
     #pageMenuBar .collapseBarText{
         padding: 3px 15px;
     }
-    #pageMenuBar {
-        top: 56px;
-    }
-
 }
 
-@media screen and (max-width: 992px) {
-    #pageMenuBar {
-        top: 56px;
+/*Credit: Antonis Triantafyllopoulos Src=https://codepen.io/kamenos96/pen/LQMxRe*/
+/* Tablet and up */
+
+@media screen and (min-width: 768px) {
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+        -webkit-transition: none;
+        transition: none;
+    }
+
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+        position: relative;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -50%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item {
+        position: relative;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item {
+        position: relative;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+}
+
+/* Desktop and up */
+
+@media screen and (min-width: 992px) {
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+        -webkit-transition: none;
+        transition: none;
+    }
+
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+        position: relative;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -33.3333%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
     }
 }

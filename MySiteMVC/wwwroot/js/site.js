@@ -101,8 +101,28 @@ function togglePageMenu() {
     }
 }
 
+//display post
+/*function viewPost(cardLink) {
+    //get card element from given link
+    var postCard = cardLink.parentElement.parentElement;
+    //remove existing expanded post, if any
+    var post = document.getElementById('fullPost');
+    if (post.hasChildNodes()) {
+        post.removeChild(post.childNodes[0]);
+        //Restore swapped post's card visibility
+        var cards = document.getElementsByClassName('card');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].style.display = 'inline-block';
+        }
+    }
+    //use selected post card's id to asynchronously retrieve post content from DB
+    //copy card cap, title, summary, dates, and tags from existing card
+    //add content to post displaying div
+    //append Disqus comment section to post
+    //hide selected card
+}*/
 
-//Hide card
+
 function viewPost(cardLink) {
     //get card from given link
     var postCard = cardLink.parentElement.parentElement;
@@ -131,3 +151,46 @@ function siteSearch(searchForm) {
     var domain = "www.mgordonmorse.com";
     document.getElementById("hiddenquery").value = "site:" + domain + " " + searchForm.queryField.value;
 }
+
+
+
+/*Credit: Antonis Triantafyllopoulos Src=https://codepen.io/kamenos96/pen/LQMxRe*/
+(function ($) {
+    "use strict";
+    // Auto-scroll
+    $('#myCarousel').carousel({
+        interval: 100000
+    });
+
+    // Control buttons
+    $('.next').click(function () {
+        $('.carousel').carousel('next');
+        return false;
+    });
+    $('.prev').click(function () {
+        $('.carousel').carousel('prev');
+        return false;
+    });
+
+    // On carousel scroll
+    $("#myCarousel").on("slide.bs.carousel", function (e) {
+        var $e = $(e.relatedTarget);
+        var idx = $e.index();
+        var itemsPerSlide = 3;
+        var totalItems = $(".carousel-item").length;
+        if (idx >= totalItems - (itemsPerSlide - 1)) {
+            var it = itemsPerSlide -
+                (totalItems - idx);
+            for (var i = 0; i < it; i++) {
+                // append slides to end 
+                if (e.direction == "left") {
+                    $(
+                        ".carousel-item").eq(i).appendTo(".carousel-inner");
+                } else {
+                    $(".carousel-item").eq(0).appendTo(".carousel-inner");
+                }
+            }
+        }
+    });
+})
+    (jQuery);
