@@ -22,6 +22,7 @@ namespace MySiteMVC.Models
         public virtual DbSet<ProjectTags> ProjectTags { get; set; }
         public virtual DbSet<Education> Education { get; set; }
         public virtual DbSet<EducationProjects> EducationProjects { get; set; }
+        public virtual DbSet<Experience> Experience { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

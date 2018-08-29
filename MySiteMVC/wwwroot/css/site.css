@@ -29,8 +29,6 @@ body {
     color: #004590;
 }
 
-
-
 .card .post-link a:hover {
     text-decoration: none;
     color: #007bff;
@@ -52,7 +50,8 @@ article {
 }
 
 .navbar-nav > li > a {
-    border: 8px solid transparent;  
+    border-top: 8px solid transparent; 
+    border-bottom: 8px solid transparent;  
 }
 
 .navbar-nav > li > a.active {
@@ -240,6 +239,7 @@ footer {
         padding: 3px 15px;
     }
 }
+
 
 /*Credit: Antonis Triantafyllopoulos Src=https://codepen.io/kamenos96/pen/LQMxRe*/
 /* Tablet and up */

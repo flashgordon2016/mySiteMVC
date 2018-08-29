@@ -19,6 +19,7 @@ $('a[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')
     .not('[href="#0"]')
+    .not('[href="#myCarousel"]') //added in manually, make more sustainable solution later
     .click(function (event) {
         // On-page links
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
@@ -154,38 +155,22 @@ function siteSearch(searchForm) {
 
 
 
-/*Credit: Antonis Triantafyllopoulos Src=https://codepen.io/kamenos96/pen/LQMxRe*/
+/*Credit: Antonis Triantafyllopoulos Src=https://codepen.io/kamenos96/pen/LQMxRe */
 (function ($) {
     "use strict";
-    // Auto-scroll
-    $('#myCarousel').carousel({
-        interval: 100000
-    });
-
-    // Control buttons
-    $('.next').click(function () {
-        $('.carousel').carousel('next');
-        return false;
-    });
-    $('.prev').click(function () {
-        $('.carousel').carousel('prev');
-        return false;
-    });
 
     // On carousel scroll
     $("#myCarousel").on("slide.bs.carousel", function (e) {
         var $e = $(e.relatedTarget);
         var idx = $e.index();
-        var itemsPerSlide = 3;
+        var itemsPerSlide = 4;
         var totalItems = $(".carousel-item").length;
         if (idx >= totalItems - (itemsPerSlide - 1)) {
-            var it = itemsPerSlide -
-                (totalItems - idx);
+            var it = itemsPerSlide - (totalItems - idx);
             for (var i = 0; i < it; i++) {
                 // append slides to end 
                 if (e.direction == "left") {
-                    $(
-                        ".carousel-item").eq(i).appendTo(".carousel-inner");
+                    $(".carousel-item").eq(i).appendTo(".carousel-inner");
                 } else {
                     $(".carousel-item").eq(0).appendTo(".carousel-inner");
                 }
@@ -193,4 +178,4 @@ function siteSearch(searchForm) {
         }
     });
 })
-    (jQuery);
+(jQuery);
