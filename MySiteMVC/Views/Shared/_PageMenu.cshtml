@@ -6,16 +6,18 @@
     <div class="arrow leftArrow"></div>
 </div>
 <div id="pageMenu" aria-expanded="true">
-    <div class="pageMenu-title text-center">on this page</div>
-    <hr />
-    <div class="btn-group-vertical">
-        @{
-            var SectionHeadings = ViewData["SectionHeadings"] as string[];
-            foreach (var heading in SectionHeadings){
-                <a class="btn btn-outline-primary btn-sm" asp-controller="AboutMe" asp-action="Index" asp-fragment="@heading">@heading</a>
+    <h3 class="pageMenu-title">on this page</h3>
+    <nav>
+        <ol>
+            @{
+                var SectionHeadings = ViewData["SectionHeadings"] as string[];
+                foreach (var heading in SectionHeadings)
+                {
+                    <li>
+                        <a asp-controller="AboutMe" asp-action="Index" asp-fragment="@heading">@heading</a>
+                    </li>
+                }
             }
-        }
-
-    </div>
+        </ol>
+    </nav>
 </div>
-
