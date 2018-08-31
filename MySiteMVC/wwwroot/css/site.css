@@ -132,7 +132,7 @@ button.navbar-toggler:hover {
 }
 
 #pageMenu .pageMenu-title {
-    padding-top: 10px;
+    padding-top: 20px;
     font-weight: 600;
     color: darkslategrey;
     font-size: 1.25rem;
@@ -171,6 +171,7 @@ nav ol li:hover {
 
 nav ol .active {
     border-left: 3px solid #007bff;
+    font-weight: 600;
 }
 
 nav ol li a:hover {
