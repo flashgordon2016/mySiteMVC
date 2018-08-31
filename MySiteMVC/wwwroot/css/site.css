@@ -118,7 +118,7 @@ button.navbar-toggler:hover {
 /* page menu */
 #pageMenu {
     position: fixed;
-    top: 61px;
+    top: 56px;
     bottom: 0;
     left: 48px;
     z-index: 1000;
@@ -133,19 +133,10 @@ button.navbar-toggler:hover {
 
 #pageMenu .pageMenu-title {
     padding-top: 10px;
-    font-size: 1.25rem;
     font-weight: 600;
     color: darkslategrey;
-}
-
-#pageMenu .btn-group-vertical {
-    width: 95%;
-}
-
-#pageMenu a {
     font-size: 1.25rem;
-    margin: 0 5px 5px 5px;
-    white-space: normal;
+    padding-left: 15px;
 }
 
 /* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
@@ -156,6 +147,34 @@ h2.anchor {
 h2.anchor span {
     position: absolute;
     top: -70px;
+}
+
+nav ol {
+    padding-left: 20px;
+}
+
+nav ol li {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 2px 0 2px 4px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+nav ol li:hover {
+    border-left: 3px solid grey;
+}
+
+nav ol .active {
+    border-left: 3px solid #007bff;
+}
+
+nav ol li a:hover {
+    text-decoration: none;
 }
 
 /* footer */

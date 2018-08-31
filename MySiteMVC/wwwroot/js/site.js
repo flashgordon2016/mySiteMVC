@@ -102,3 +102,32 @@ function togglePageMenu() {
 
     }
 }
+
+
+$(document).ready(function () {
+    console.log("ready");
+    var sections = $('h2 span'),
+        topNav = $('.navbar'),
+        nav = $('#pageMenu nav'),
+        nav_height = nav.outerHeight();
+
+    $(window).on('scroll', function () {
+        console.log("scrolling");
+        var cur_pos = $(this).scrollTop();
+        console.log(cur_pos);
+
+        sections.each(function () {
+            var top = $(this).offset().top - nav_height,
+                bottom = top + $(this).outerHeight(),
+                id = $(this).attr('id');
+
+            if (cur_pos >= top) {
+                console.log(id);
+                $('#pageMenu nav ol li').removeClass('active');
+                $('#pageMenu nav ol li a[href=\'/#' + id + '\']').parent().addClass('active');
+            }
+        });
+    });
+});
+
+
