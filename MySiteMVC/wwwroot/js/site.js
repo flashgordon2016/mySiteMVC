@@ -41,31 +41,51 @@ function copyText(id) {
 
 /* toggle sidebar function */
 function togglePageMenu() {
-    var menuID = '#pageMenu';
+    var pageMenu = $('#pageMenu');
     var bodyContentID = '#bodyContent';
     //if sidebar is shown
-    if ($(menuID).is(':visible')) {
+    if (pageMenu.is(':visible')) {
         //hide sidebar
-        $(menuID).hide('fast', function () {
-            //subtract page menu width from left padding of body content
-            $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) - $(menuID).width());
-            //point arrows right
-            $('.arrow').toggleClass('leftArrow rightArrow');
-            //change text to from 'collapse' to 'expand'
-            $('.collapseBarText .swappedText').text('expand');
-        });
+        pageMenu.hide();
+        //point arrows right
+        $('.arrow').toggleClass('leftArrow rightArrow');
+        //subtract page menu width from left padding of body content
+        $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) - pageMenu.width());
+        //change text to from 'collapse' to 'expand'
+        $('.collapseBarText .swappedText').text('expand');
     } else { //otherwise 
         //show sidebar
-        $(menuID).show('fast', function () {
-            //add sidebar width to page content padding
-            $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) + $(menuID).width());
-            //point arrows left
-            $('.arrow').toggleClass('leftArrow rightArrow');
-            //change text from 'expand' to 'collapse'
-            $('.collapseBarText .swappedText').text('collapse');
+        pageMenu.show();
+        //point arrows left
+        $('.arrow').toggleClass('leftArrow rightArrow');
+        //add sidebar width to page content padding
+        $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) + pageMenu.width());
+        //change text from 'expand' to 'collapse'
+        $('.collapseBarText .swappedText').text('collapse');
+    }
+}
+
+
+/*function collapsePageMenuSmall() {
+    var width = $(document).width(),
+        menuVisible = $('#pageMenu').is(':visible');
+    if (width <= 992 && menuVisible) {
+        $(window).off('resize'); //Turn off listener temporarily 
+        togglePageMenu();
+        $(window).on('resize', function () {
+            collapsePageMenuSmall()
         });
     }
 }
+
+//write function to close sidebar when resizing to small screens
+$(window).on('resize', function () {
+    console.log('resized');
+    collapsePageMenuSmall();
+});*/
+//write function for opening and closing sidebar on small screens
+
+//have resize swap sidebar toggling functions based on screen size
 
 
 

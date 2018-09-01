@@ -204,4 +204,20 @@ footer {
     #pageMenuBar {
         top: 56px;
     }
+
+    #pageMenu {
+        display: none;
+    }
+
+    #pageMenu .rightArrow {
+        display: block;
+    }
+
+    #pageMenu .leftArrow {
+        display: none;
+    }
+
+    #bodyContent {
+        padding-left: 73px;
+    }
 }
