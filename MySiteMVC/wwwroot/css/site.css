@@ -21,8 +21,12 @@ body {
     margin: 0 auto;
 }
 
+.card {
+    border: 2px solid transparent;
+}
+
 .card:hover {
-    outline: 2px solid orange;
+    border: 2px solid orange;
 }
 
 .card .post-link a {
