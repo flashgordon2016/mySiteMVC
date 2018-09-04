@@ -161,12 +161,15 @@ function siteSearch(searchForm) {
 
     // On carousel scroll
     $("#myCarousel").on("slide.bs.carousel", function (e) {
-        var $e = $(e.relatedTarget);
-        var idx = $e.index();
-        var itemsPerSlide = 4;
+        var nextSlide = $(e.relatedTarget); //DOM element that is being slid into place as the active item
+        var idx = nextSlide.index();
+        console.log("index: " + idx);
+        console.log("to: " + e.to);
+        console.log("from: " + e.from);
+        var itemsPerSlide = 3;
         var totalItems = $(".carousel-item").length;
         if (idx >= totalItems - (itemsPerSlide - 1)) {
-            var it = itemsPerSlide - (totalItems - idx);
+            var it = itemsPerSlide - (totalItems - idx - 1);
             for (var i = 0; i < it; i++) {
                 // append slides to end 
                 if (e.direction == "left") {
@@ -178,4 +181,21 @@ function siteSearch(searchForm) {
         }
     });
 })
-(jQuery);
+    (jQuery);
+
+
+$(document).ready(function () {
+    //initialize swiper when document ready
+    var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+     
+    });
+});
