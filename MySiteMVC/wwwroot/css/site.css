@@ -35,21 +35,21 @@ button.navbar-toggler:hover {
 /*laptops and larger*/
 @media screen and (min-width: 992px) {
     .navbar-nav > li {
-        padding-left: 0px;
+        padding-left: 0;
         margin-top: -8px;
         margin-bottom: -8px;
     }
     .navbar-nav > li > a {
-        border-left-width: 0px;
+        border-left-width: 0;
         border-top: 8px solid transparent;
         border-bottom: 8px solid transparent;
     }
     .navbar-nav > li > a.active {
-        border-left-width: 0px;
+        border-left-width: 0;
         border-bottom: 8px solid orange;
     }
     .navbar-nav > li > a:hover {
-        border-left-width: 0px;
+        border-left-width: 0;
         border-bottom: 8px solid lightgray;
     }
 }
