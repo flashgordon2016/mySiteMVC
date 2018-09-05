@@ -190,12 +190,40 @@ $(document).ready(function () {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
-        slidesPerView: 3,
-        slidesPerGroup: 3,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'progressbar'
+        },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
         },
-     
+        breakpoints: {
+            576: { //portrait phones
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 10
+            },
+            768: { //tablets and down
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 20
+            },
+            992: { //desktops and down
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 20
+            },
+            1200: { //desktops and down
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                spaceBetween: 20
+            },
+            1600: { //large desktops and down
+                slidesPerView: 5,
+                slidesPerGroup: 5,
+                spaceBetween: 20
+            }
+        }
     });
 });

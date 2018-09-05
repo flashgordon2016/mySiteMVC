@@ -46,10 +46,10 @@
             @foreach (var edu in Model.Education)
             {
                 <div class="swiper-slide">
-                    <div class="card" style="height:600px;">
+                    <div class="card">
                         @if (edu.Logo != null)
                         {
-                            <img class="mx-auto" src="@edu.Logo" alt="Card image cap" style="max-height:150px; ">
+                            <img class="mx-auto" src="@edu.Logo" alt="Card image cap" style="max-height:150px;">
                         }
                         <div class="card-body">
                             <h4 class="card-title">@Html.DisplayFor(eduModel => edu.Institution)</h4>
