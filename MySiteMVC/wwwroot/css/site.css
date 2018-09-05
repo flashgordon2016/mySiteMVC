@@ -8,18 +8,10 @@ body {
 article {
     max-width: 700px;
 }
-    .navbar-nav > li > a.active {
-    border-bottom-color: orange;
-    border-bottom-style: solid;
-    border-bottom-width: thick;
-}
 
-.navbar-nav > li > a:hover {
-    border-bottom-color: lightgray;
-    border-bottom-style: solid;
-    border-bottom-width: thick;
-}
 
+/*********************** begin main menu *******************************************/
+/*mobile-first and constant rules*/
 button.navbar-toggler {
     background-color: white;
 }
@@ -28,196 +20,218 @@ button.navbar-toggler:hover {
     background-color: orange;
 }
 
-#bodyContent p a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom-color: orange;
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-}
 
-#bodyContent p a:hover {
-    background-color: orange;
-    transition: box-shadow .15s ease-in-out;
-}
-
-.bannerImage {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 15px;
-}
-
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding: 80px 25px 0 273px;
-}
-
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-
-
-/* page menu bar */
-#pageMenuBar {
-    position: fixed;
-    top: 61px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding-top: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background-color: #3c3c3c;
-    border-right: 1px solid #eee;
-    width: 48px;
-    cursor: pointer;
-}
-
-#pageMenuBar:hover {
-    background-color: #666670;
-    cursor: pointer;
-}
-
-#pageMenuBar hr {
-    border-color: white;
-    height: 2px;
-}
-
-#pageMenuBar .leftArrow {
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid white;
-    margin: auto;
-}
-
-#pageMenuBar .rightArrow {
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid white;
-    margin: auto;
-}
-
-#pageMenuBar .collapseBarText {
-    writing-mode: vertical-rl;
-    text-orientation: sideways;
-    padding: 15px;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-/* page menu */
-#pageMenu {
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 48px;
-    z-index: 1000;
-    display: block;
-    padding-right: 3px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: white;
-    border-right: 1px solid #eee;
-    width: 200px;
-}
-
-#pageMenu .pageMenu-title {
-    padding-top: 20px;
-    font-weight: 600;
-    color: darkslategrey;
-    font-size: 1.25rem;
-    padding-left: 15px;
-}
-
-/* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
-h2.anchor {
-    position: relative;
-}
-
-h2.anchor span {
-    position: absolute;
-    top: -70px;
-}
-
-nav ol {
-    padding-left: 20px;
-}
-
-nav ol li {
-    list-style: none;
-    font-size: 1.1rem;
-    line-height: 1.3;
-    border-width: 0 0 0 3px;
-    border-style: solid;
-    border-color: transparent;
-    padding: 2px 0 2px 4px;
-    margin-top: 4px;
-    margin-right: 5px;
-}
-
-nav ol li:hover {
-    border-left: 3px solid grey;
-}
-
-nav ol .active {
-    border-left: 3px solid #007bff;
-    font-weight: 600;
-}
-
-nav ol li a:hover {
-    text-decoration: none;
-}
-
-/* footer */
-footer {
-    width: 100%;
-    flex-shrink: 0;
-    padding-bottom: 20px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
- 
-    .desktopOnlyText{
-        display:none;
+/*desktop and larger*/
+@media screen and (min-width: 992px) {
+    .navbar-nav > li 
+    .navbar-nav > li > a.active {
+        border-bottom-color: orange;
+        border-bottom-style: solid;
+        border-bottom-width: thick;
     }
-    #pageMenuBar .collapseBarText{
-        padding: 3px 15px;
+
+    .navbar-nav > li > a:hover {
+        border-bottom-color: lightgray;
+        border-bottom-style: solid;
+        border-bottom-width: thick;
     }
+}
+
+    /*********************** end main menu *******************************************/
+
+
+
+    #bodyContent p a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom-color: orange;
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+    }
+
+        #bodyContent p a:hover {
+            background-color: orange;
+            transition: box-shadow .15s ease-in-out;
+        }
+
+    .bannerImage {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Wrapping element */
+    /* Set some basic padding to keep content from hitting the edges */
+    .body-content {
+        padding: 80px 25px 0 273px;
+    }
+
+
+    /* QR code generator */
+    #qrCode {
+        margin: 15px;
+    }
+
+
+
+    /* page menu bar */
     #pageMenuBar {
-        top: 56px;
-    }
-
-}
-
-@media screen and (max-width: 992px) {
-    #pageMenuBar {
-        top: 56px;
-    }
-
-    #pageMenu {
-        display: none;
-    }
-
-    #pageMenu .rightArrow {
+        position: fixed;
+        top: 61px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
         display: block;
+        padding-top: 20px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-color: #3c3c3c;
+        border-right: 1px solid #eee;
+        width: 48px;
+        cursor: pointer;
     }
 
-    #pageMenu .leftArrow {
-        display: none;
+        #pageMenuBar:hover {
+            background-color: #666670;
+            cursor: pointer;
+        }
+
+        #pageMenuBar hr {
+            border-color: white;
+            height: 2px;
+        }
+
+        #pageMenuBar .leftArrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+            margin: auto;
+        }
+
+        #pageMenuBar .rightArrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid white;
+            margin: auto;
+        }
+
+        #pageMenuBar .collapseBarText {
+            writing-mode: vertical-rl;
+            text-orientation: sideways;
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+    /* page menu */
+    #pageMenu {
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        left: 48px;
+        z-index: 1000;
+        display: block;
+        padding-right: 3px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: white;
+        border-right: 1px solid #eee;
+        width: 200px;
     }
 
-    #bodyContent {
-        padding-left: 73px;
+        #pageMenu .pageMenu-title {
+            padding-top: 20px;
+            font-weight: 600;
+            color: darkslategrey;
+            font-size: 1.25rem;
+            padding-left: 15px;
+        }
+
+    /* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+    h2.anchor {
+        position: relative;
     }
-}
+
+        h2.anchor span {
+            position: absolute;
+            top: -70px;
+        }
+
+    nav ol {
+        padding-left: 20px;
+    }
+
+        nav ol li {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.3;
+            border-width: 0 0 0 3px;
+            border-style: solid;
+            border-color: transparent;
+            padding: 2px 0 2px 4px;
+            margin-top: 4px;
+            margin-right: 5px;
+        }
+
+            nav ol li:hover {
+                border-left: 3px solid grey;
+            }
+
+        nav ol .active {
+            border-left: 3px solid #007bff;
+            font-weight: 600;
+        }
+
+        nav ol li a:hover {
+            text-decoration: none;
+        }
+
+    /* footer */
+    footer {
+        width: 100%;
+        flex-shrink: 0;
+        padding-bottom: 20px;
+    }
+
+    /* Hide/rearrange for smaller screens */
+    @media screen and (max-width: 767px) {
+
+        .desktopOnlyText {
+            display: none;
+        }
+
+        #pageMenuBar .collapseBarText {
+            padding: 3px 15px;
+        }
+
+        #pageMenuBar {
+            top: 56px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        #pageMenuBar {
+            top: 56px;
+        }
+
+        #pageMenu {
+            display: none;
+        }
+
+            #pageMenu .rightArrow {
+                display: block;
+            }
+
+            #pageMenu .leftArrow {
+                display: none;
+            }
+
+        #bodyContent {
+            padding-left: 73px;
+        }
+    }
