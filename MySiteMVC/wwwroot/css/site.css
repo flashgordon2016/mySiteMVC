@@ -10,7 +10,7 @@ article {
 }
 
 
-/*********************** begin main menu *******************************************/
+/*vvvvvvvvvvvvvvvvvvvvvvv---begin main menu---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*/
 /*mobile-first and non-screen-responsive rules*/
 .navbar-nav .nav-item .nav-link {
     padding-left: 5px;
@@ -53,9 +53,14 @@ button.navbar-toggler:hover {
         border-bottom: 8px solid lightgray;
     }
 }
-/*********************** end main menu *******************************************/
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^---end main menu---^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
+/*********************** begin general page content *******************************/
+/* Set some basic padding to keep content from hitting the edges */
+#bodyContent {
+    padding: 80px 25px 0 73px;
+}
 
 #bodyContent p a {
     color: inherit;
@@ -65,29 +70,22 @@ button.navbar-toggler:hover {
     border-bottom-width: 3px;
 }
 
-    #bodyContent p a:hover {
-        background-color: orange;
-        transition: box-shadow .15s ease-in-out;
-    }
+#bodyContent p a:hover {
+    background-color: orange;
+    transition: box-shadow .15s ease-in-out;
+}
 
 .bannerImage {
     width: 100%;
     height: 100%;
     margin-bottom: 15px;
 }
-
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding: 80px 25px 0 273px;
-}
-
+/*********************** end general page content *********************************/
 
 /* QR code generator */
 #qrCode {
     margin: 15px;
 }
-
 
 
 /* page menu bar */
@@ -144,20 +142,23 @@ button.navbar-toggler:hover {
     letter-spacing: 2px;
 }
 
-/* page menu */
+
+/*vvvvvvvvvvvvvvvvvvvvvvv---begin page menu---vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*/
+/*mobile-first and non-screen-responsive rules*/
 #pageMenu {
     position: fixed;
     top: 56px;
     bottom: 0;
     left: 48px;
     z-index: 1000;
-    display: block;
+    display: none; /*hide by default on small screens (< 700px)*/
     padding-right: 3px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: white;
     border-right: 1px solid #eee;
     width: 200px;
+    box-shadow: 150px 0 450px black;
 }
 
 #pageMenu .pageMenu-title {
@@ -168,15 +169,22 @@ button.navbar-toggler:hover {
     padding-left: 15px;
 }
 
-/* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
-h2.anchor {
-    position: relative;
+.desktopOnlyText {
+    display: none;
 }
 
-h2.anchor span {
-    position: absolute;
-    top: -70px;
+#pageMenuBar .collapseBarText {
+    padding: 3px 15px;
 }
+
+#pageMenuBar .rightArrow {
+    display: block;
+}
+
+#pageMenuBar .leftArrow {
+    display: none;
+}
+
 
 nav ol {
     padding-left: 20px;
@@ -207,6 +215,42 @@ nav ol li a:hover {
     text-decoration: none;
 }
 
+
+@media screen and (min-width: 700px) {
+    #pageMenu {
+        display: block;
+        box-shadow: initial;
+    }
+
+    #pageMenuBar .rightArrow {
+        display: none;
+    }
+
+    #pageMenuBar .leftArrow {
+        display: block;
+    }
+
+    .desktopOnlyText {
+        display: initial;
+    }
+
+    #bodyContent {
+        padding: 80px 25px 0 273px;
+    }
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^---end page menu---^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+/* anchors credit: https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+h2.anchor {
+    position: relative;
+}
+
+h2.anchor span {
+    position: absolute;
+    top: -70px;
+}
+
 /* footer */
 footer {
     width: 100%;
@@ -214,31 +258,4 @@ footer {
     padding-bottom: 20px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    .desktopOnlyText {
-        display: none;
-    }
 
-    #pageMenuBar .collapseBarText {
-        padding: 3px 15px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    #pageMenu {
-        display: none;
-    }
-
-        #pageMenu .rightArrow {
-            display: block;
-        }
-
-        #pageMenu .leftArrow {
-            display: none;
-        }
-
-    #bodyContent {
-        padding-left: 73px;
-    }
-}
