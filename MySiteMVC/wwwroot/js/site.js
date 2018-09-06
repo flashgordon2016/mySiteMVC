@@ -149,3 +149,9 @@ $('a[href*="#"]')
     });
 /* End credit: https://css-tricks.com/snippets/jquery/smooth-scrolling/ */
 
+
+//search site
+function siteSearch(searchForm) {
+    var domain = "https://mattmorse.azurewebsites.net/";
+    document.getElementById("hiddenquery").value = "site:" + domain + " " + searchForm.queryField.value;
+}
