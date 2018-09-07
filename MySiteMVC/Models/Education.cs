@@ -24,5 +24,7 @@ namespace MySiteMVC.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<EducationProjects> EducationProjects { get; set; }
+        public List<EducationSkills> EducationSkills { get; set; }
+        public TermType TermType { get; set; }
     }
 }

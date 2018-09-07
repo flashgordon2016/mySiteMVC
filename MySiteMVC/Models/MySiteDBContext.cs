@@ -23,6 +23,11 @@ namespace MySiteMVC.Models
         public virtual DbSet<Education> Education { get; set; }
         public virtual DbSet<EducationProjects> EducationProjects { get; set; }
         public virtual DbSet<Experience> Experience { get; set; }
+        public virtual DbSet<Skill> Skill { get; set; }
+        public virtual DbSet<ProjectSkills> ProjectSkills { get; set; }
+        public virtual DbSet<ExperienceSkills> ExperienceSkills { get; set; }
+        public virtual DbSet<EducationSkills> EducationSkills { get; set; }
+        public virtual DbSet<TermType> TermTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -93,6 +98,21 @@ namespace MySiteMVC.Models
             modelBuilder.Entity<EducationProjects>(entity =>
             {
                 entity.HasKey(e => new { e.EducationId, e.ProjectId });
+            });
+
+            modelBuilder.Entity<EducationSkills>(entity =>
+            {
+                entity.HasKey(e => new { e.EducationId, e.SkillId });
+            });
+
+            modelBuilder.Entity<ProjectSkills>(entity =>
+            {
+                entity.HasKey(e => new { e.ProjectId, e.SkillId });
+            });
+
+            modelBuilder.Entity<ExperienceSkills>(entity =>
+            {
+                entity.HasKey(e => new { e.ExperienceId, e.SkillId });
             });
         }
     }

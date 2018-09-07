@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySiteMVC.Models;
 
 namespace MySiteMVC.Migrations
 {
     [DbContext(typeof(MySiteDBContext))]
-    partial class MySiteDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180907195352_AddedTermTypeTable")]
+    partial class AddedTermTypeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

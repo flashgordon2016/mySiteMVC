@@ -20,5 +20,6 @@ namespace MySiteMVC.Models
         public string SourceCode { get; set; }
         public List<ProjectTags> ProjectTags { get; set; }
         public Experience Experience { get; set; }
+        public List<ProjectSkills> ProjectSkills { get; set; }
     }
 }

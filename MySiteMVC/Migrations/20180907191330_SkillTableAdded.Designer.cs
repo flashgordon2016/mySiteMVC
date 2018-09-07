@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MySiteMVC.Models;
 
 namespace MySiteMVC.Migrations
 {
     [DbContext(typeof(MySiteDBContext))]
-    partial class MySiteDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180907191330_SkillTableAdded")]
+    partial class SkillTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,13 +76,9 @@ namespace MySiteMVC.Migrations
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<int?>("TermTypeId");
-
                     b.Property<string>("Website");
 
                     b.HasKey("EducationId");
-
-                    b.HasIndex("TermTypeId");
 
                     b.ToTable("Education");
                 });
@@ -248,28 +246,6 @@ namespace MySiteMVC.Migrations
                     b.HasKey("TagId");
 
                     b.ToTable("Tag");
-                });
-
-            modelBuilder.Entity("MySiteMVC.Models.TermType", b =>
-                {
-                    b.Property<int>("TermTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Term")
-                        .IsRequired()
-                        .HasMaxLength(64);
-
-                    b.HasKey("TermTypeId");
-
-                    b.ToTable("TermTypes");
-                });
-
-            modelBuilder.Entity("MySiteMVC.Models.Education", b =>
-                {
-                    b.HasOne("MySiteMVC.Models.TermType", "TermType")
-                        .WithMany("Education")
-                        .HasForeignKey("TermTypeId");
                 });
 
             modelBuilder.Entity("MySiteMVC.Models.EducationProjects", b =>
