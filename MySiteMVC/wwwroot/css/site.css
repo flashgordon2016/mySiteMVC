@@ -59,7 +59,7 @@ button.navbar-toggler:hover {
 /*********************** begin general page content *******************************/
 /* Set some basic padding to keep content from hitting the edges */
 #bodyContent {
-    padding: 80px 25px 0 73px;
+    padding: 70px 25px 0 73px;
 }
 
 #bodyContent p a {
@@ -80,12 +80,13 @@ button.navbar-toggler:hover {
     height: 100%;
     margin-bottom: 15px;
 }
-/*********************** end general page content *********************************/
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+@media screen and (min-width: 700px){
+    #bodyContent {
+        padding: 80px 35px 0 283px;
+    }
 }
+/*********************** end general page content *********************************/
 
 
 /* page menu bar */
@@ -169,10 +170,6 @@ button.navbar-toggler:hover {
     padding-left: 15px;
 }
 
-.desktopOnlyText {
-    display: none;
-}
-
 #pageMenuBar .collapseBarText {
     padding: 3px 15px;
 }
@@ -230,13 +227,7 @@ nav ol li a:hover {
         display: block;
     }
 
-    .desktopOnlyText {
-        display: initial;
-    }
-
-    #bodyContent {
-        padding: 80px 25px 0 273px;
-    }
+    
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^---end page menu---^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 

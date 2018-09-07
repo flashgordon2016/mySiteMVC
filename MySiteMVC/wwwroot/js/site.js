@@ -40,42 +40,39 @@ function copyText(id) {
 /* toggle sidebar function */
 function togglePageMenu() {
     var pageMenu = $('#pageMenu');
-    var bodyContentID = '#bodyContent';
-    //if sidebar is shown
+    var bodyContent = $('#bodyContent');
+    //hide sidebar
     if (pageMenu.is(':visible')) {
-        //hide sidebar
-        pageMenu.hide();
-        //small screens
-        if ($('body').width() < 700) {
-            console.log('small screen');
-            //pageMenu.css('box-shadow', 'initial');
-        } else { //larger screens
-            console.log('large screen');
-            //subtract page menu width from left padding of body content
-            $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) - pageMenu.width());
+        //adjust content padding for larger screens
+        if ($('body').outerWidth() >= 700) {
+            pageMenu.css('display', 'none');
+            bodyContent.css('padding-left', '83px');
+            //point arrows right
+            $('.leftArrow').css('display', 'none');
+            $('.rightArrow').css('display', 'block');
+        } else { //small screens
+            pageMenu.css('display', '');
+            bodyContent.css('padding-left', '');
+            //point arrows right
+            $('.leftArrow').css('display', '');
+            $('.rightArrow').css('display', '');
+        }   
+    } else { //otherwise        
+        //adjust content padding for larger screens
+        if ($('body').outerWidth() >= 700) {
+            pageMenu.css('display', '');
+            bodyContent.css('padding-left', '');
+            //point arrows left
+            $('.rightArrow').css('display', '');
+            $('.leftArrow').css('display', '');
+        } else {
+            pageMenu.css('display', 'block');
+            bodyContent.css('padding-left', '');
+            //point arrows left
+            $('.rightArrow').css('display', 'none');
+            $('.leftArrow').css('display', 'block');
         }
-        //point arrows right
-        $('.leftArrow').css('display', 'none');
-        $('.rightArrow').css('display', 'block');
-        //change text to from 'collapse' to 'expand'
-        $('.collapseBarText .swappedText').text('expand');
-    } else { //otherwise 
-        //show sidebar
-        pageMenu.show();
-        //small screens
-        if ($('body').width() < 700) {
-            console.log('small screen');
-        } else { //larger screens
-            console.log('large screen');
-            //add sidebar width to page content padding
-            $(bodyContentID).css('padding-left', parseInt($(bodyContentID).css('padding-left')) + pageMenu.width());
-        }
-        //point arrows left
-        $('.rightArrow').css('display', 'none');
-        $('.leftArrow').css('display', 'block');
         
-        //change text from 'expand' to 'collapse'
-        $('.collapseBarText .swappedText').text('collapse');
     }
 }
 
@@ -143,6 +140,6 @@ $('a[href*="#"]')
 
 //search site
 function siteSearch(searchForm) {
-    var domain = "https://mattmorse.azurewebsites.net/";
+    var domain = "mattmorse.azurewebsites.net/";
     document.getElementById("hiddenquery").value = "site:" + domain + " " + searchForm.queryField.value;
 }
